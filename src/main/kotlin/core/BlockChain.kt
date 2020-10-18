@@ -13,7 +13,7 @@ class BlockChain(var blockChain: ArrayList<Block>) {
         difficultyTarget = target
     }
 
-    fun add(data: SomeThingVO) {
+    suspend fun add(data: SomeThingVO) {
         if (blockChain.isEmpty()) {
             blockChain.add(Block(1, "0", data, difficultyTarget))
             println("Genesis Block Create!")
@@ -29,13 +29,7 @@ class BlockChain(var blockChain: ArrayList<Block>) {
 
     fun toStringList() {
         for(block in blockChain) {
-            println("{\n" +
-                    "index : ${block.index}\n" +
-                    "data : ${block.transactions}\n" +
-                    "prev hash:${block.prevBlockHash}\n" +
-                    "hash : ${block.hash}\n" +
-                    "nonce : ${block.nonce}\n" +
-                    "}\n")
+            println(block)
         }
     }
 

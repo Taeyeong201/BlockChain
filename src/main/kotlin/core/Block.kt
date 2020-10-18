@@ -29,4 +29,16 @@ data class Block(
                 println("Success mining.")
                 return hash
         }
+
+        override fun toString(): String {
+                return "{\n" +
+                        "\tindex : ${index}\n" +
+                        "\tdata : ${transactions}\n" +
+                        "\tprev hash : ${prevBlockHash}\n" +
+                        "\thash : ${hash}\n" +
+                        "\tnonce : ${nonce}\n" +
+                        "\tdifficultyTarget : ${difficultyTarget}\n" +
+                        "\ttimestamp : ${timestamp}\n" +
+                        "}\n"
+        }
 }
